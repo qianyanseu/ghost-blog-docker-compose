@@ -11,7 +11,7 @@ services:
       - /srv/docker/ghost/content:/var/lib/ghost/content
     environment:
       # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
-      url: https://blog.realjasonq.com
+      url: https://blog.your-awesome-domain.com
       database__client: mysql
       database__connection__host: db
       database__connection__user: root
