@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+
+  ghost:
+    image: ghost:1-alpine
+    restart: always
+    ports:
+      - 2368:2368
+    volumes:
+      - /srv/docker/ghost/content:/var/lib/ghost/content
+    environment:
+      # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
+      url: https://blog.realjasonq.com
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: hard_to_guess_password
+      database__connection__database: ghost
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: hard_to_guess_password
